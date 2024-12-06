@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -32,10 +33,12 @@ LoginTest extends BaseTest {
 
     @DataProvider()
     public Object[][] loginData() {
+        String user = PropertyReader.getProperty("sauce.user");
+        String password = PropertyReader.getProperty("sauce.password");
         return new Object[][]{
-                {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
-                {"standard_users", "", "Epic sadface: Password is required"},
-                {"", "secret_sauce", "Epic sadface: Username is required"}
+                {"locked_out_user", password, "Epic sadface: Sorry, this user has been locked out."},
+                {user, "", "Epic sadface: Password is required"},
+                {"", password, "Epic sadface: Username is required"}
         };
     }
 
