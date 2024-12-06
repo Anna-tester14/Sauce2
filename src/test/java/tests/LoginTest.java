@@ -17,14 +17,14 @@ LoginTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Owner("Anna")
     @TmsLink("UrnSu")
-    @Test (description = "авторизация под верными данными")
+    @Test(description = "авторизация под верными данными")
     @Issue("3")
-    @Description ("Проверка входа в систему интернет-магазина")
+    @Description("Проверка входа в систему интернет-магазина")
     @Flaky
     public void correctLogin() {
         loginPage.open();
         loginPage.login(user, password);
-       // AllureUtils.takeScreenshot(driver);
+        // AllureUtils.takeScreenshot(driver);
         assertEquals(productsPage.getTitle(), "Products");
         assertTrue(productsPage.isDispl(), "");
 

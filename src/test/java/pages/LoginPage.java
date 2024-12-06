@@ -22,7 +22,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step("Вводим данные {user} и {password}")
-    public void login(String user, String password){
+    public void login(String user, String password) {
         fillUserInput(user);
         fillPasswordInput(password);
         clickSubmitBtn();

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductsPage extends BasePage {
-    WebDriver driver;
+
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -28,22 +28,25 @@ public class ProductsPage extends BasePage {
         return true;
     }
 
-   public void addToCart(String product) {
-       By addToCart = By.xpath(String.format(ADD_TO_CART_PATTERN, product));
-       driver.findElement(addToCart).click();
-   }
-   public void addToCart(int index) {
-       driver.findElements(By.xpath("//*[text()='Add to cart']")).get(index);
+    public void addToCart(String product) {
+        By addToCart = By.xpath(String.format(ADD_TO_CART_PATTERN, product));
+        driver.findElement(addToCart).click();
+    }
+
+    public void addToCart(int index) {
+        driver.findElements(By.xpath("//*[text()='Add to cart']")).get(index);
 
     }
+
     public boolean isDispl() {
-        driver.findElement(TITLE2).isDisplayed();
-        return true;
+        return driver.findElement(TITLE2).isDisplayed();
+        //return true;
     }
 
     public boolean openCart() {
         driver.findElement(By.xpath("//*[@class='shopping_cart_link']")).click();
-    return true;}
+        return true;
+    }
 
     public ArrayList<String> getProductsNames() {
         List<WebElement> allProductsNames = driver.findElements(By.cssSelector(".inventory_item_name"));
