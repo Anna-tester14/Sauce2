@@ -25,7 +25,7 @@ LoginTest extends BaseTest {
     public void correctLogin() {
         loginPage.open();
         loginPage.login(user, password);
-        // AllureUtils.takeScreenshot(driver);
+        //AllureUtils.takeScreenshot(driver);
         assertEquals(productsPage.getTitle(), "Products");
         assertTrue(productsPage.isDispl(), "");
 

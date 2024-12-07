@@ -9,5 +9,5 @@
 //   @Attachment (value = "screenshot", type = "image/png")
 //  public static byte[] takeScreenshot(Webdriver driver) {
 //       return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-//   }
+//  }
 //}

@@ -2,3 +2,5 @@ target/
 .allure/
 .idea/
 src/test/resources/config.properties
+*.xml
+*.iml
