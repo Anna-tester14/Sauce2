@@ -7,6 +7,7 @@ import utils.PropertyReader;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static utils.AllureUtils.takeScreenshot;
 
 
 public class
@@ -23,12 +24,12 @@ LoginTest extends BaseTest {
     @Description("Проверка входа в систему интернет-магазина")
     @Flaky
     public void correctLogin() {
-        loginPage.open();
-        loginPage.login(user, password);
-        //AllureUtils.takeScreenshot(driver);
+        loginPage
+                .open()
+                .login(user, password);
         assertEquals(productsPage.getTitle(), "Products");
         assertTrue(productsPage.isDispl(), "");
-
+        takeScreenshot(driver);
     }
 
     @DataProvider()
@@ -44,8 +45,9 @@ LoginTest extends BaseTest {
 
     @Test(dataProvider = "loginData")
     public void lockedUserLogin(String user, String pass, String errorMsg) {
-        loginPage.open();
-        loginPage.login(user, pass);
+        loginPage
+                .open()
+                .login(user, pass);
         assertEquals(loginPage.getErrorMessage(), errorMsg);
     }
 }

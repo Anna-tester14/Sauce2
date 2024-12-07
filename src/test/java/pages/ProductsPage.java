@@ -14,18 +14,13 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
-    private final String ADD_TO_CART_PATTERN =
+    private static final String ADD_TO_CART_PATTERN =
             "//div[text()='%s']//ancestor::div[@class='inventory_item']//button";
-    private final By TITLE = By.cssSelector("[class=title]");
-    private final By TITLE2 = (By.xpath("//*[text()='Products']"));
+    private final By title = By.cssSelector("[class=title]");
+    private final By title2 = (By.xpath("//*[text()='Products']"));
 
     public String getTitle() {
-        return driver.findElement(TITLE).getText();
-    }
-
-    public boolean titleDisplayed() {
-        driver.findElement(TITLE2).isDisplayed();
-        return true;
+        return driver.findElement(title).getText();
     }
 
     public void addToCart(String product) {
@@ -39,8 +34,7 @@ public class ProductsPage extends BasePage {
     }
 
     public boolean isDispl() {
-        return driver.findElement(TITLE2).isDisplayed();
-        //return true;
+        return driver.findElement(title2).isDisplayed();
     }
 
     public boolean openCart() {
@@ -56,6 +50,4 @@ public class ProductsPage extends BasePage {
         }
         return names;
     }
-
 }
-

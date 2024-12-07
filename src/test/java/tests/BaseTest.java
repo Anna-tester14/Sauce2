@@ -43,7 +43,7 @@ public class BaseTest {
         productsPage = new ProductsPage(driver);
 
         System.setProperty("BASE_URL", PropertyReader.getProperty("sauce.url"));
-                user = PropertyReader.getProperty("sauce.user");
+        user = PropertyReader.getProperty("sauce.user");
         password = PropertyReader.getProperty("sauce.password");
     }
 
